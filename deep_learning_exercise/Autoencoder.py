@@ -37,10 +37,10 @@ ae_imgs = autoencoder.predict(X_test)
 plt.figure(figsize=(7, 2)) 
 
 for i, image_idx in enumerate(random_test):    
-   ax = plt.subplot(2, 5, i + 1) 
+   ax = plt.subplot(2, 7, i + 1) 
    plt.imshow(X_test[image_idx].reshape(28, 28))  
    ax.axis('off')
-   ax = plt.subplot(2, 5, 7 + i +1)
+   ax = plt.subplot(2, 7, 7 + i +1)
    plt.imshow(ae_imgs[image_idx].reshape(28, 28))  
    ax.axis('off')
 plt.show()
