@@ -1,0 +1,23 @@
+C:/Users/seomk/Downloads/Lab2_files/mips_single.sv {1 {vlog -work work -sv -stats=none C:/Users/seomk/Downloads/Lab2_files/mips_single.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module testbench
+-- Compiling module top
+-- Compiling module dmem
+-- Compiling module imem
+-- Compiling module mips
+-- Compiling module controller
+-- Compiling module maindec
+-- Compiling module aludec
+-- Compiling module datapath
+-- Compiling module regfile
+-- Compiling module adder
+-- Compiling module sl2
+-- Compiling module signext
+-- Compiling module flopr
+-- Compiling module mux2
+-- Compiling module alu
+
+Top level modules:
+	testbench
+
+} {} {}}

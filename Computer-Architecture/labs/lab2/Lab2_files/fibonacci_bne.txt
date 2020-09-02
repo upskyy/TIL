@@ -1,0 +1,22 @@
+20080014         main:    addi $t0, $0, 20          # set max counter (n+1=20)
+20090000                  addi $t1, $0, 0           # fibonacci initialize counter    
+200d0000                  add  $t5, $0, 0           # store selector
+200e0001                  add  $t6, $0, 1           # store select 1
+200a0000                  addi $t2, $0, 0           # $t2 <= 0 (fibonacci store 0)
+214b0001                  addi $t3, $t2, 1          # $t3 <= 1 (fibonacci store 1)
+000a6020                  add  $t4, $0, $t2         # f[0] = 0 (fibonacci output)
+000b6020                  add  $t4, $0, $t3         # f[1] = 1 (fibonacci output)
+1109000b         loop:    beq  $t0, $t1, end        # if fibonacci counter == max counter then branch to end
+016a6020                  add  $t4, $t3, $t2        # f[n] (fibonacci output)
+11a00003                  beq  $t5, $0, trans1      # select store 1
+11ae0005                  beq  $t5, $t6, trans2     # select store 2
+21290001         append:  addi $t1, $t1, 1          # append fibonacci counter
+150dfffa                bne  $t0, $t5, loop       # goto loop
+000c5025         store1:  or   $t2, $0, $t4         # store fibonacci output to $t2
+200d0001                  addi $t5, $0, 1           # transfer counter set to 1
+150dfffb                 bne  $t0, $t5, append     # goto append
+000c5825         store2:  or   $t3, $0, $t4         # $t3 <= $t4                  
+200d0000                  addi $t5, $0, 0           # transfer counter set to 0
+150dfff8                  bne  $t0, $t5, append     # goto append
+2002000a         end:     addi $v0, $0, 10          # end program system call
+ac020054                  sw $2, 84($0)             # write adr 84 = 10 (end simulation condition)
